@@ -121,7 +121,7 @@
     [myScr mas_makeConstraints:^(MASConstraintMaker *make){
         make.edges.equalTo(weakself.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
-    UIView *lastView=nil;
+   // UIView *lastView=nil;//
     for(int i=0;i<10;i++)
     {
         UIView *smallView=[UIView new];
