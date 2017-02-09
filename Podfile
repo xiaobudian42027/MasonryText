@@ -7,6 +7,8 @@ target 'MasonryText' do
   pod 'AFNetworking', '~> 3.1.0'
   pod 'SDWebImage', '~> 4.0.0-beta2'
   pod 'Masonry', '~> 1.0.2'
+  pod 'IQKeyboardManager', '~> 4.0.7'
+  
   # Pods for MasonryText
 
 end
