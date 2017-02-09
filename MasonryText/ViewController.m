@@ -9,19 +9,76 @@
 #import "ViewController.h"
 #import <Masonry/Masonry.h>
 
+
 #define weak_self __weak __typeof(&*self)weakself=self
 #define rgb(x,y,z,alp) [UIColor colorWithRed:x/255.0 green:y/255.0 blue:z/255.0 alpha:alp]
-@interface ViewController ()
-
+@interface ViewController ()<UITextViewDelegate>
+@property (nonatomic,strong)UITextView *textV;
 @end
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
    // [self masonryView];
-    [self masonryScrollView];
+    //[self masonryScrollView];
+    [self yyKeyboardText];
+    
 }
+-(void)textViewDidChange:(UITextView *)textView
+{
+   
+    
+}
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+        [textView becomeFirstResponder];
+    return YES;
+}
+//yykeboard测试
+-(void)yyKeyboardText
+{
+    UIView *view1=[UIView new];
+    view1.layer.borderWidth=2.0;
+    view1.layer.borderColor=[UIColor yellowColor].CGColor;
+    [self.view addSubview:view1];
+    [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).width.insets(UIEdgeInsetsMake(200, 100, 10, 100));
+    }];
+    UITextView *textV=[UITextView new];
+    textV.delegate=self;
+    textV.text=@"大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及";
+    textV.layer.borderColor=[UIColor greenColor].CGColor;
+    textV.layer.borderWidth=2.0;
+    [view1 addSubview:textV];
+    [textV mas_makeConstraints:^(MASConstraintMaker *make){
+        
+        make.top.equalTo(view1).with.offset(10);
+        make.left.equalTo(view1).with.offset(10);
+        make.width.height.equalTo(@100);
+        
+    }];
+    _textV=textV;
+    UITextView *textV1=[UITextView new];
+    textV1.delegate=self;
+    textV1.text=@"大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及大山里的进来撒大家了撒娇的沙拉大家洒落的骄傲是来得及";
+    textV1.layer.borderColor=[UIColor greenColor].CGColor;
+    textV1.layer.borderWidth=2.0;
+    [view1 addSubview:textV1];
+    [textV1 mas_makeConstraints:^(MASConstraintMaker *make){
+        
+        make.top.equalTo(_textV.mas_bottom).with.offset(10);
+        make.left.equalTo(_textV.mas_left);
+        make.width.equalTo(_textV);
+        make.height.equalTo(@100);
+        
+    }];
+
+    
+}
+//masonry测试
 -(void)masonryView
 {
     weak_self;
